@@ -6,7 +6,8 @@ import json
 import os
 
 # --- KEYS ---
-SERPER_API_KEY = "32804b2829a40c8dadd2062d02ee7263618db626"
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
+SERPER_API_KEY = st.secrets["SERPER_API_KEY"]
 MEMORY_FILE = "bot_memory.json"
 
 client = Groq(api_key=GROQ_API_KEY)
@@ -77,4 +78,5 @@ if st.sidebar.button("🗑️ Clear Permanent Memory"):
         os.remove(MEMORY_FILE)
     st.session_state.messages = [{"role": "system", "content": "You are Awais bhai's personal AI Agent. Talk like a loyal assistant in Roman Urdu/Hindi. NO INTRODUCTIONS."}]
     st.rerun()
+
     
